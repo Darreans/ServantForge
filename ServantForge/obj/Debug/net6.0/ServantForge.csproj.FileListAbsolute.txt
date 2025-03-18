@@ -1,0 +1,13 @@
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\ServantForge.csproj.AssemblyReference.cache
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\MyPluginInfo.cs
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\ServantForge.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\ServantForge.AssemblyInfoInputs.cache
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\ServantForge.AssemblyInfo.cs
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\ServantForge.csproj.CoreCompileInputs.cache
+C:\Users\Darrean\source\repos\ServantForge\bin\Debug\net6.0\ServantForge.deps.json
+C:\Users\Darrean\source\repos\ServantForge\bin\Debug\net6.0\ServantForge.dll
+C:\Users\Darrean\source\repos\ServantForge\bin\Debug\net6.0\ServantForge.pdb
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\ServantForge.dll
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\refint\ServantForge.dll
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\ServantForge.pdb
+C:\Users\Darrean\source\repos\ServantForge\obj\Debug\net6.0\ref\ServantForge.dll
