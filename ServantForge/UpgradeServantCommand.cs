@@ -17,7 +17,8 @@ namespace ServantForge
     public static class UpgradeServantCommand
     {
         private const float MaxBlood = 100f;
-        private const string CostItemName = "Thistle"; 
+        // Removed the hard-coded "Thistle" string
+        // private const string CostItemName = "Thistle"; 
 
         private const string ColorHexSuccess = "00FF00";
         private const string ColorHexError = "FF0000";
@@ -52,10 +53,14 @@ namespace ServantForge
                     return;
                 }
 
+                // Pull item config values
                 float proficiencyIncrement = ServantForgeConfig.ProficiencyIncrement.Value;
                 float maxProficiency = ServantForgeConfig.MaxProficiency.Value;
                 int costItemGuid = ServantForgeConfig.CostItemGUID.Value;
                 int costItemNeeded = ServantForgeConfig.CostItemAmount.Value;
+
+                // NEW: Read the item name from the config
+                string costItemName = ServantForgeConfig.CostItemName.Value;
 
                 float currentProf = coffinData.ServantProficiency;
                 if (currentProf >= maxProficiency)
@@ -65,15 +70,16 @@ namespace ServantForge
                 }
 
                 var costGuid = new PrefabGUID(costItemGuid);
+
                 if (!HasEnoughItem(ctx.Event.SenderCharacterEntity, costGuid, costItemNeeded))
                 {
-                    ReplyColored(ctx, $"You need {costItemNeeded} {CostItemName}.", ColorHexError);
+                    ReplyColored(ctx, $"You need {costItemNeeded} {costItemName}.", ColorHexError);
                     return;
                 }
 
                 if (!RemoveItem(ctx.Event.SenderCharacterEntity, costGuid, costItemNeeded))
                 {
-                    ReplyColored(ctx, $"Failed to remove {costItemNeeded} {CostItemName} from your inventory.", ColorHexError);
+                    ReplyColored(ctx, $"Failed to remove {costItemNeeded} {costItemName} from your inventory.", ColorHexError);
                     return;
                 }
 
@@ -81,7 +87,7 @@ namespace ServantForge
                 float actualInc = (needed < proficiencyIncrement) ? needed : proficiencyIncrement;
 
                 coffinData.ServantProficiency += actualInc;
-                coffinData.ServantProficiency = math.min(coffinData.ServantProficiency, maxProficiency);
+                coffinData.ServantProficiency  = math.min(coffinData.ServantProficiency, maxProficiency);
 
                 coffinData.BloodQuality = (coffinData.ServantProficiency / maxProficiency) * MaxBlood;
                 em.SetComponentData(coffinEntity, coffinData);

@@ -9,6 +9,9 @@ namespace ServantForge
         public static ConfigEntry<int> CostItemGUID;
         public static ConfigEntry<int> CostItemAmount;
 
+        // 1. Add this new config entry
+        public static ConfigEntry<string> CostItemName;
+
         public static void Initialize(ConfigFile config)
         {
             ProficiencyIncrement = config.Bind(
@@ -37,6 +40,14 @@ namespace ServantForge
                 "CostItemAmount",
                 300,
                 "How many of that item must be removed each time."
+            );
+
+            // 2. Bind the item name to config
+            CostItemName = config.Bind(
+                "ServantForge",
+                "CostItemName",
+                "Thistle",
+                "Friendly display name for the cost item"
             );
         }
     }
